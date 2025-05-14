@@ -21,11 +21,9 @@
     <title>Números Primos</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/estilos.css"/>
 </head>
-<style>
 
-</style>
 <body>
-
+<div class="container calculator-container bg-light">
 <h1>Números Primos</h1>
 <h3>Ingrese solo números positivos</h3>
 
@@ -40,27 +38,5 @@
         <input type="number" name="numero2" id="numero2" required />
     </div>
 
-    <div class="form-group submit">
-        <button type="submit">Calcular</button>
-    </div>
-</form>
-
-<% if (errores != null && !errores.isEmpty()) { %>
-<div class="errores" style="color: red;">
-    <h4>Errores:</h4>
-    <ul>
-        <% for (String error : errores.values()) { %>
-        <li><%= error %></li>
-        <% } %>
-    </ul>
-</div>
-<% } %>
-
-<% if (resultado != null) { %>
-<div class="resultado">
-    <h4>Resultado:</h4>
-    <p><%= resultado %></p>
-</div>
-<% } %>
 </body>
 </html>

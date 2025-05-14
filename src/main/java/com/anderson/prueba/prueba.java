@@ -17,7 +17,6 @@ import jakarta.servlet.http.HttpServletResponse;
 public class prueba extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         Map<String, String> errores = new HashMap<>();
         List<Integer> primos = new ArrayList<>();
         String resultado = null;
@@ -36,35 +35,8 @@ public class prueba extends HttpServlet {
             } else if (numero1 > numero2) {
                 errores.put("numeros", "El primer número debe ser menor que el segundo.");
             }
-        } catch (NumberFormatException e) {
-            errores.put("numeros", "Los números deben ser válidos.");
         }
-
-
-        if (errores.isEmpty()) {
-            for (int i = numero1; i <= numero2; i++) {
-                if (esPrimo(i)) {
-                    primos.add(i);
-                }
-            }
-            resultado = "Números primos: " + primos.toString() +
-                    "<br>Total de números primos: " + primos.size();
-        }
-
-
-        request.setAttribute("error", errores);
-        request.setAttribute("resultado", resultado);
-
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
-    private boolean esPrimo(int numero) {
-        if (numero <= 1) return false;
-        for (int i = 2; i <= Math.sqrt(numero); i++) {
-            if (numero % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+
 }
